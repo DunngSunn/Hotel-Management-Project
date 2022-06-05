@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussiness\AccountBUS.cs" />
+    <Compile Include="Bussiness\BillBUS.cs" />
+    <Compile Include="Bussiness\BillRoomBUS.cs" />
     <Compile Include="Bussiness\CustomerBUS.cs" />
     <Compile Include="Bussiness\EmployeeBUS.cs" />
     <Compile Include="Bussiness\RoomBUS.cs" />

@@ -14,6 +14,8 @@ namespace GUI
         public static List<RoomUC> RoomUCs { get; set; }
         public static List<Service> Services { get; set; }
         public static List<ServiceType> ServiceTypes { get; set; }
+        public static List<Bill> Bills { get; set; }
+        public static List<BillRoom> BillRooms { get; set; }
 
         public static void InitializeData()
         {
@@ -23,6 +25,8 @@ namespace GUI
             Rooms = RoomBUS.GetAllRoom();
             Services = ServiceBUS.GetAllService();
             ServiceTypes = ServiceTypeBUS.GetAllServiceType();
+            Bills = BillBUS.GetAllBill();
+            BillRooms = BillRoomBUS.GetAllBillRoom();
 
             RoomUCs = new List<RoomUC>();
             for (int i = 0; i < Rooms.Count; i++)

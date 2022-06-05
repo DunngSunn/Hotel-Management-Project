@@ -374,7 +374,7 @@ GO
 CREATE PROC USP_EditRoomStatus
 @roomID INT,
 @roomBooked INT,
-@roomCheckin DateTime,
+@roomCheckin DATETIME,
 @customerID INT
 AS
 BEGIN
@@ -383,7 +383,7 @@ BEGIN
 	WHERE roomID = @roomID
 END
 GO
---EXEC USP_EditRoomStatus @roomID = , @roomBooked = , @roomCheckin = '', @customerID = 
+--EXEC USP_EditRoomStatus @roomID = 8, @roomBooked = 0, @roomCheckin = 'null', @customerID = null
 
 --Xoá phòng
 CREATE PROC USP_DeleteRoom
@@ -442,22 +442,27 @@ CREATE PROC USP_AddBill
 @customerID INT,
 @checkIn DATETIME,
 @checkOut DATETIME,
-@totalPrice BIGINT,
+@totalPrice BIGINT
+AS
+BEGIN
+	INSERT INTO Bill( customerID, checkIn, checkOut, totalPrice )
+	VALUES ( @customerID, CAST(@checkIn as DATETIME), CAST(@checkOut as DATETIME), @totalPrice )
+END
+GO
+--EXEC USP_AddBill @customerID = , @checkIn = '', @checkOut = '', @totalPrice = 
+
+--Thêm hoá đơn phòng
+CREATE PROC USP_AddBillRoom
+@billID INT,
 @roomID INT,
 @quantityHour INT,
 @totalPriceRoom BIGINT
 AS
 BEGIN
-	INSERT INTO Bill( customerID, checkIn, checkOut, totalPrice )
-	VALUES ( @customerID, @checkIn, @checkOut, @totalPrice )
-	DECLARE @lastBillID INT
-	SET @lastBillID = (SELECT MAX(billID) FROM Bill)
 	INSERT INTO BillRoom( billID, roomID, quantityHour, totalPriceRoom )
-	VALUES ( @lastBillID, @roomID, @quantityHour, @totalPriceRoom )
+	VALUES ( @billID, @roomID, @quantityHour, @totalPriceRoom )
 END
 GO
---EXEC USP_AddBill @customerID = , @checkIn = '', @checkOut = '', @totalPrice = , @roomID = , @quantityHour = , @totalPriceRoom = 
-
---Thêm hoá 
+--EXEC USP_AddBillRoom @billID = , @roomID = , @quantityHour = , @totalPriceRoom = 
 
 

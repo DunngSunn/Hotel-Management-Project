@@ -41,7 +41,6 @@ namespace GUI.Forms
                 CustomerName.Enabled = false;
                 DateCheckin.Text = ThisRoom.RoomCheckin.ToString();
                 Status.Text = "Đã thuê";
-                ServiceButton.Visible = true;
                 RoomControlButton.Text = "Trả phòng";
             }
             else
@@ -50,7 +49,6 @@ namespace GUI.Forms
                 CustomerName.Enabled = true;
                 DateCheckin.Text = string.Empty;
                 Status.Text = "Đang trống";
-                ServiceButton.Visible = false;
                 RoomControlButton.Text = "Nhận phòng";
             }
         }
@@ -60,8 +58,28 @@ namespace GUI.Forms
             if (RoomControlButton.Text == "Trả phòng")
             {
                 var dateTimeNow = DateTime.Now;
-
-
+                var hour = (dateTimeNow - ThisRoom.RoomCheckin).Value.Hours;
+                var hourPlus = (dateTimeNow - ThisRoom.RoomCheckin).Value.Minutes > 0 ? 1 : 0;
+                var totalTime = hour + hourPlus;
+                var totalPrice = totalTime * ThisRoom.RoomPrice;
+                var bill = BillBUS.AddBill((int)ThisRoom.CustomerID, ThisRoom.RoomCheckin.ToString(), dateTimeNow.ToString(), totalPrice);
+                var billRoom = BillRoomBUS.AddBillRoom(BillBUS.GetLastIndexOfBill(), ThisRoom.RoomID, totalTime, totalPrice);
+                var editRoom = RoomBUS.EditStatusRoom(ThisRoom.RoomID, false, null, 0);
+                if (bill != null && billRoom != null && editRoom)
+                {
+                    ThisRoom.RoomBooked = false;
+                    ThisRoom.RoomCheckin = null;
+                    ThisRoom.CustomerID = null;
+                    DataClass.Bills.Add(bill);
+                    DataClass.BillRooms.Add(billRoom);
+                    BillUC.ResetDataGridview.Invoke();
+                    Initialize();
+                    RoomManagerUC.BookedRoomAction.Invoke(ThisRoom);
+                }
+                else
+                {
+                    MessageBox.Show("Trả phòng không thành công.");
+                }
             }
             else
             {

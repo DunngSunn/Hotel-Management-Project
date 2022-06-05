@@ -19,10 +19,7 @@ namespace GUI.Forms
         {
             if (txtAccount.Text.Trim().Equals("") || txtPassword.Text.Trim().Equals(""))
             {
-                OtherThread.RunWorkerAsync();
-                loadingForm = new Loading();
-                loadingForm.ShowDialog();
-                //MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo");
             }
             else
             {

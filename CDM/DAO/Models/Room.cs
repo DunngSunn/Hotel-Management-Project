@@ -109,7 +109,15 @@ namespace DAO.Models
 
         public static bool EditStatusRoom(int roomID, int roomBooked, string roomCheckin, int customerID)
         {
-            var query = string.Format("EXEC USP_EditRoomStatus @roomID = {0}, @roomBooked = {1}, @roomCheckin = '{2}', @customerID = {3}", roomID, roomBooked, roomCheckin, customerID);
+            string query;
+            if (roomBooked == 1)
+            {
+                query = string.Format("EXEC USP_EditRoomStatus @roomID = {0}, @roomBooked = {1}, @roomCheckin = '{2}', @customerID = {3}", roomID, roomBooked, roomCheckin, customerID);
+            }
+            else
+            {
+                query = string.Format("EXEC USP_EditRoomStatus @roomID = {0}, @roomBooked = 0, @roomCheckin = null, @customerID = null", roomID);
+            }
             if (DataProvider.Instance.ExecuteNonQuery(query) != 0)
             {
                 return true;
