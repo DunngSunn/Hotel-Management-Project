@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0678F84-77E9-497E-80E5-D89B39550224}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataClass.cs" />
+    <Compile Include="Forms\AddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCustomer.Designer.cs">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddRoom.Designer.cs">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditRoom.Designer.cs">
+      <DependentUpon>EditRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoomController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoomController.Designer.cs">
+      <DependentUpon>RoomController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServiceInRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServiceInRoom.Designer.cs">
+      <DependentUpon>ServiceInRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\BillUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\BillUC.Designer.cs">
+      <DependentUpon>BillUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\CustomerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\CustomerUC.Designer.cs">
+      <DependentUpon>CustomerUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\EmployeeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\EmployeeUC.Designer.cs">
+      <DependentUpon>EmployeeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\RoomManagerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\RoomManagerUC.Designer.cs">
+      <DependentUpon>RoomManagerUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\RoomUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\RoomUC.Designer.cs">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCustoms\ServiceUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCustoms\ServiceUC.Designer.cs">
+      <DependentUpon>ServiceUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\AddCustomer.resx">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddRoom.resx">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditRoom.resx">
+      <DependentUpon>EditRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RoomController.resx">
+      <DependentUpon>RoomController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServiceInRoom.resx">
+      <DependentUpon>ServiceInRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\BillUC.resx">
+      <DependentUpon>BillUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\CustomerUC.resx">
+      <DependentUpon>CustomerUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\EmployeeUC.resx">
+      <DependentUpon>EmployeeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\RoomManagerUC.resx">
+      <DependentUpon>RoomManagerUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\RoomUC.resx">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCustoms\ServiceUC.resx">
+      <DependentUpon>ServiceUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{0ff9016b-bb47-408d-abb0-e9231db71093}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{65af9ab1-b821-4c17-a56b-ba75808afeae}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crane.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\loading.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

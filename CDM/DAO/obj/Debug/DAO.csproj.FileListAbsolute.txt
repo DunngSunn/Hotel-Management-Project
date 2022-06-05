@@ -1,0 +1,6 @@
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\bin\Debug\DAO.dll
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\bin\Debug\DAO.pdb
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\obj\Debug\DAO.dll
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\obj\Debug\DAO.pdb
+C:\Users\ngdun\Desktop\CDM\CDM\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
